@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Android Drops SDK Example</string>
+    <string name="setup_title">Payer Auth Setup</string>
+    <string name="setup_subtitle">Configure the Drops-backed payer auth demo and open the dedicated test screen.</string>
+    <string name="environment_label">Environment</string>
+    <string name="auth_token_label">Auth token</string>
+    <string name="tracker_label">Tracker</string>
+    <string name="ddc_jwt_label">DDC JWT</string>
+    <string name="ddc_url_label">DDC URL</string>
+    <string name="street_label">Street</string>
+    <string name="city_label">City</string>
+    <string name="country_label">Country</string>
+    <string name="do_capture_label">Capture on authorization</string>
+    <string name="do_card_on_file_label">Card on file</string>
+    <string name="open_demo_button">Open Payer Auth Demo</string>
+    <string name="event_log_title">Event Log</string>
+</resources>
