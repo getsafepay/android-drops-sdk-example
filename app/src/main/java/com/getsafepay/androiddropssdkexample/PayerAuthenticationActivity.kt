@@ -77,11 +77,13 @@ class PayerAuthenticationActivity : AppCompatActivity() {
             tracker = intent.getStringExtra(MainActivity.EXTRA_TRACKER).orEmpty(),
             deviceDataCollectionJWT = intent.getStringExtra(MainActivity.EXTRA_DDC_JWT).orEmpty(),
             deviceDataCollectionURL = intent.getStringExtra(MainActivity.EXTRA_DDC_URL).orEmpty(),
-            billing = BillingAddress(
-                street1 = intent.getStringExtra(MainActivity.EXTRA_STREET).orEmpty(),
-                city = intent.getStringExtra(MainActivity.EXTRA_CITY).orEmpty(),
-                country = intent.getStringExtra(MainActivity.EXTRA_COUNTRY).orEmpty(),
-            ),
+            billing = run {
+                val street = intent.getStringExtra(MainActivity.EXTRA_STREET).orEmpty()
+                val city = intent.getStringExtra(MainActivity.EXTRA_CITY).orEmpty()
+                val country = intent.getStringExtra(MainActivity.EXTRA_COUNTRY).orEmpty()
+                if (street.isBlank() && city.isBlank() && country.isBlank()) null
+                else BillingAddress(street1 = street, city = city, country = country)
+            },
             authorizationOptions = AuthorizationOptions(
                 doCapture = intent.getBooleanExtra(MainActivity.EXTRA_DO_CAPTURE, false),
                 doCardOnFile = intent.getBooleanExtra(MainActivity.EXTRA_DO_CARD_ON_FILE, false),
