@@ -45,7 +45,7 @@ class PayerAuthenticationActivity : AppCompatActivity() {
                 }
 
                 override fun onPayerAuthenticationUnavailable(data: PayerAuthenticationData) {
-                    appendLog("unavailable", data.toString())
+                    appendLog("unavailable", data.errorMessage ?: data.toString())
                 }
 
                 override fun onSafepayError(error: SafepayErrorData) {
